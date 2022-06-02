@@ -21,10 +21,21 @@ UC4 : Retrieve all the employee_payroll data
 
 SELECT * FROM employee_payroll;
 
-UC5 : Ability to retrieve salary data and start datecd
+UC5 : Ability to retrieve salary data and start date
 
 SELECT salary FROM employee_payroll WHERE name = 'Viraj';
 
 SELECT * FROM employee_payroll WHERE startdate BETWEEN CAST('2022-01-01' AS DATE) AND GETDATE();
+
+UC6- Ability to add Gender to employee_payroll table
+
+ALTER TABLE employee_payroll ADD gender VARCHAR(1);
+
+UPDATE employee_payroll set gender='M' where name = 'Viraj';
+UPDATE Employee_Payroll set Gender='M' where name = 'Vaibhav' or name = 'Varad';
+
+
+
+
 
 
