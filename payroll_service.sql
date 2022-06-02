@@ -71,6 +71,14 @@ ALTER TABLE employee_payroll ADD incometax int not null default 0;
 
 ALTER TABLE employee_payroll ADD netpay int not null default 0;
 
+UC10 : Ability to make Terissa
+
+INSERT INTO employee_payroll(name,salary,startdate,gender,phone,address,department,basicpay,deduction,taxablepay,incometax,netpay) 
+Values('Terissa',45000,'2019/03/24','F','0123456789','UK','Sales&Marketing',1000,500,1500,3000,60000);
+
+select * from employee_payroll;
+
+
 
 
 
