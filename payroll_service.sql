@@ -21,5 +21,10 @@ UC4 : Retrieve all the employee_payroll data
 
 SELECT * FROM employee_payroll;
 
+UC5 : Ability to retrieve salary data and start date
+
+SELECT salary FROM employee_payroll WHERE name = 'Viraj';
+
+SELECT * FROM employee_payroll WHERE startdate BETWEEN CAST('2022-01-01' AS DATE) AND GETDATE();
 
 
