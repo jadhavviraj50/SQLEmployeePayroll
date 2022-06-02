@@ -21,7 +21,7 @@ UC4 : Retrieve all the employee_payroll data
 
 SELECT * FROM employee_payroll;
 
-UC5 : Ability to retrieve salary data and start date
+UC5 : Ability to retrieve salary data and start datecd
 
 SELECT salary FROM employee_payroll WHERE name = 'Viraj';
 
