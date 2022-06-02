@@ -59,6 +59,18 @@ ALTER TABLE employee_payroll ADD address varchar(200) not null default 'Panvel';
 ALTER TABLE employee_payroll ADD department varchar(100);
 UPDATE employee_payroll SET department='Electrical' WHERE name='Viraj';
 
+UC9 : Ability to add basic pay, deduction,taxable pay,income tax, net pay
+
+ALTER TABLE employee_payroll ADD basicpay int not null default 0;
+
+ALTER TABLE employee_payroll ADD deduction int not null default 0;
+
+ALTER TABLE employee_payroll ADD taxablepay int not null default 0;
+
+ALTER TABLE employee_payroll ADD incometax int not null default 0;
+
+ALTER TABLE employee_payroll ADD netpay int not null default 0;
+
 
 
 
