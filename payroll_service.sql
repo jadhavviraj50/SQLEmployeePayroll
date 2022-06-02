@@ -13,12 +13,13 @@ salary INT,
 startdate DATE,
 );
 
-UC3 : To create employee payroll data
+UC3 : To create employee_payroll data
 
 insert into employee_payroll values('Viraj',25000,'2022-04-14'),('Vaibhav',60000,'2021-08-15'),('Varad',15000,'2023-04-20');
 
+UC4 : Retrieve all the employee_payroll data
 
-
+SELECT * FROM employee_payroll;
 
 
 
