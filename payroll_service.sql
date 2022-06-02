@@ -49,7 +49,15 @@ SELECT gender, MAX(salary) FROM employee_payroll GROUP BY gender;
 
 SELECT gender, COUNT(name) FROM employee_payroll GROUP BY gender;
 
+UC8 : Ability to add employee phone, address, department
 
+ALTER TABLE employee_payroll ADD phone varchar(10);
+UPDATE employee_payroll SET phone='0123456789' WHERE id=3;
+
+ALTER TABLE employee_payroll ADD address varchar(200) not null default 'Panvel';
+
+ALTER TABLE employee_payroll ADD department varchar(100);
+UPDATE employee_payroll SET department='Electrical' WHERE name='Viraj';
 
 
 
