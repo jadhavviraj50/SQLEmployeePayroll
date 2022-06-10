@@ -103,5 +103,124 @@ CREATE TABLE Department
 select* from Department;
 
 
+INSERT INTO Company VALUES(01, 'Hitachi' );
+INSERT INTO Company VALUES(02,'TCS');
+INSERT INTO Company VALUES(03,'wipro');
+INSERT INTO Company VALUES(04,'Amazon');
+SELECT * FROM Company
 
+INSERT INTO Employee VALUES (1, 'Terisa',02,'9897654321','America', 'F');
+INSERT INTO Employee VALUES (2, 'Jeck',01,'6785940321','London','M');
+INSERT INTO Employee VALUES (3, 'John',03,'8796053412','India','M' );
+INSERT INTO Employee VALUES (4, 'Terisa',02,'9897657857','SriLanka', 'F');
+SELECT * FROM Employee
+
+
+INSERT INTO Department VALUES ( 'sales', 1,001);
+INSERT INTO Department VALUES ( 'HR',2,002);
+INSERT INTO Department VALUES ('Finance',3,003);
+INSERT INTO Department VALUES ('Marketing', 4,004);
+SELECT * FROM Department
+
+
+INSERT INTO Payroll VALUES(1, 20000,1000,400,700,19000);
+INSERT INTO Payroll VALUES(2,30000,1200,400,700,28800);
+INSERT INTO Payroll VALUES(3,40000,2000,400,700,38000);
+INSERT INTO Payroll VALUES(4,35000,1000,400,700,34000);
+SELECT * FROM Payroll
+
+
+UC12:  retrieve queries done especially in UC 4, UC 5 and UC 7 are working with new table structure
+
+---------------------------------UC4: To retrieve all  data-------------------------------------------------
+
+
+SELECT  e.Name, d.DeptName, c.compName, p.BasicPay,p.NetPay,e.Gender,e.Address,e.Phone
+FROM Employee e
+INNER JOIN Department d
+ON e.empId=d.empId
+INNER JOIN Company c
+ON c.compId=e.compId
+INNER JOIN payroll p
+ON p.empId=e.empId;
+
+---------------------------------UC5: Ability to retrieve salary data by name------------------------------
+
+SELECT  e.Name,p.BasicPay
+FROM Employee e
+INNER JOIN Department d
+ON e.empId=d.empId
+INNER JOIN Company c
+ON c.compId=e.compId
+INNER JOIN payroll p
+ON p.empId=e.empId
+where Name='jeck';
+
+---------------------------------employees join between this range of date----------------------------------
+
+ALTER TABLE Employee ADD Start_Date DATE;
+UPDATE Employee SET Start_Date='2020-05-15' WHERE empId = 3;
+
+SELECT  e.Name,e.Start_Date
+FROM Employee e
+INNER JOIN Department d
+ON e.empId=d.empId
+INNER JOIN Company c
+ON c.compId=e.compId
+INNER JOIN payroll p
+ON p.empId=e.empId
+WHERE Start_Date BETWEEN CAST('2018-01-01'AS DATE) AND GETDATE();
+
+
+----------------------------------UC7:Ability to find sum,average,min,max & count-----------------------------
+
+SELECT sum(BasicPay)as p
+FROM Employee e
+INNER JOIN Department d
+ON e.empId=d.empId
+INNER JOIN Company c
+ON c.compId=e.compId
+INNER JOIN payroll p
+ON p.empId=e.empId
+WHERE Gender= 'F' GROUP BY Gender;
+
+SELECT Max(BasicPay)as p
+FROM Employee e
+INNER JOIN Department d
+ON e.empId=d.empId
+INNER JOIN Company c
+ON c.compId=e.compId
+INNER JOIN payroll p
+ON p.empId=e.empId
+WHERE Gender= 'M' GROUP BY Gender;
+
+SELECT Avg(BasicPay)as p
+FROM employee e
+INNER JOIN DEPARTMENT d
+ON e.empId=d.empId
+INNER JOIN Company c
+ON c.compId=e.compId
+INNER JOIN payroll p
+ON p.empId=e.empId
+WHERE Gender= 'F' GROUP BY Gender;
+
+SELECT Min(BasicPay)as p
+FROM employee e
+INNER JOIN DEPARTMENT d
+ON e.empId=d.empId
+INNER JOIN Company c
+ON c.compId=e.compId
+INNER JOIN payroll p
+ON p.empId=e.empId
+WHERE Gender= 'F' GROUP BY Gender;
+
+SELECT Count(BasicPay)as p
+FROM employee e
+INNER JOIN DEPARTMENT d
+ON e.empId=d.empId
+INNER JOIN Company c
+ON c.compId=e.compId
+INNER JOIN payroll p
+ON p.empId=e.empId
+WHERE Gender= 'M' GROUP BY Gender;
 
